@@ -3,7 +3,8 @@ const logger = require("morgan");
 const cors = require("cors");
 
 const userRouter = require("./routes/api/user");
-const contactsRouter = require("./routes/api/contacts");
+const recepiesRouter = require("./routes/api/recepies");
+const authRouter = require("./routes/api/auth");
 console.log("Hello World!")
 const app = express();
 
@@ -19,7 +20,9 @@ app.use(express.static("public"));// коли прийде запит на фа�
 app.use(express.urlencoded({ extended: true }));
 
 app.use(userRouter);
-app.use("/api/contacts", contactsRouter);
+app.use("/api/auth", authRouter);
+app.use("/api/recepies", recepiesRouter);
+
 
 app.use((req, res) => {
   res.status(404).json({ message: "Not found!" });

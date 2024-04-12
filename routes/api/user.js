@@ -22,7 +22,7 @@ userRouter.get("/api/user/register", renderRegisterPage);
 userRouter.get("/api/user/login", renderLoginPage);
 
 userRouter.post("/api/user/register", registerController);
-userRouter.post("/api/user/signin", validateBody(schemas.logInSchema), signInController);
+// userRouter.post("/api/user/signin", validateBody(schemas.logInSchema), signInController);
 userRouter.get("/api/user/current", authenticate, getCurrent);
 userRouter.post("/api/user/signout", authenticate, signOutController);
 userRouter.patch("/api/user/", authenticate, updateSubscription);

@@ -1,4 +1,4 @@
-const {User} = require('../shemas/user');
+const {User} = require('../shemas/userNew');
 
 const getAllUsers = async () => {
     return User.find();
