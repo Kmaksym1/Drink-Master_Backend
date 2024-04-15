@@ -20,7 +20,8 @@ const registerController = async (req, res) => {
   });
   res.status(201).json({
     email: newUser.email,
-    name: newUser.name,
+      name: newUser.name,
+      birthday: newUser.birthday,
   });
 };
 
@@ -41,7 +42,9 @@ const loginController = async (req, res) => {
   const token = jwt.sign(payload, SECRET_KEY, { expiresIn: "72h" });
 await User.findByIdAndUpdate(user._id, { token });
     const userUpdate = await User.findOne({ email });
-  res.json({
+    res.json({
+      user:{name: user.name, email: user.email, birthday: user.birthday},
+    // userUpdate,
     token,
   });
 };

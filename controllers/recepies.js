@@ -9,7 +9,7 @@ const { recepiesModel } = require("../shemas/recepies");
 // };
 
 const allRecepies = async (req, res) => {
-    console.log(allRecepies)
+    console.log(req)
     const { _id: owner } = req.user;
   
     const recepies = await recepiesModel.find(); // інструмент пошуку для поширення запиту;

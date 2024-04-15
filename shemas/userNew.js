@@ -11,6 +11,10 @@ const userSchema = new Schema(
       minLength: 2,
       required: [true, "Set name for your account"],
     },
+    birthday: {
+      type: String,
+      minLength: 10,
+    },
     email: {
       type: String,
       default: "",
@@ -32,7 +36,8 @@ userSchema.post("save", handleMongooseError);
 const registerSchema = Joi.object({
   name: Joi.string().required(),
   email: Joi.string().pattern(emailRegexp).required(),
-  password: Joi.string().min(6).required(),
+    password: Joi.string().min(6).required(),
+    birthday: Joi.string().min(10).required(),
 });
 
 const loginSchema = Joi.object({
